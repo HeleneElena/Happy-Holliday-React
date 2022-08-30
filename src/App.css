@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: 17px;
+}
+
+.women {
+  background-color: #FFF1F8;
+}
+
+.men {
+  background-color: #EFF9FE;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+
+
+
+
