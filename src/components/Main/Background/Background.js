@@ -1,14 +1,8 @@
-import React from "react";
-
 import style from './Background.module.css';
-import bg from '../../../img/card-bg.jpg';
 
-
-const Background = () => (
-    <img className={style.img} src={bg} alt="greeting" />
-  )
-  
-
+const Background = ({bg}) => (
+    <img className={style.img} src={bg} alt="фон открытки" width={840} height={520} />
+)
 
 export default Background;
 

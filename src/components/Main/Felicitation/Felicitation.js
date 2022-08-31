@@ -1,11 +1,8 @@
-import React from "react";
-
 import style from './Felicitation.module.css';
 
 const Felicitation = () => {
- 
   return (
-    <p className={style.felicitation}>
+    <p className={style.text}>
         Поздравляю с днем рожденья!<br />
         Пусть будет жизнь полна веселья,<br />
         Не будет грусти и хлопот,<br />
