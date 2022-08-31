@@ -18,6 +18,10 @@
     gap: 20%;
 }
 
+.button:hover {
+    background: #05684a;
+}
+
 .button {
     width: 300px;
     height: 65px;

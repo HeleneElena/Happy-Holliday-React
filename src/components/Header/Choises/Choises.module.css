@@ -8,6 +8,10 @@
     color: #fff;
 }
 
+.button:hover {
+    background: #05684a;
+}
+
 @media (max-width: 1024px) {
     .button {
         width: 220px;
