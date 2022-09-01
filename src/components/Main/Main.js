@@ -1,7 +1,7 @@
 import Felicitation from './Felicitation/Felicitation';import Background from './Background/Background';
+import Container from '../Container/Container';
 
 import style from './Main.module.css';
-import Container from '../Container/Container';
 import bg from '../../img/card-bg.jpg';
 
 

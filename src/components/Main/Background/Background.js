@@ -1,8 +1,14 @@
-import style from './Background.module.css';
+import { useContext } from 'react';
+import { imgContext } from './../../../context/imgContext';
 
-const Background = ({bg}) => (
-    <img className={style.img} src={bg} alt="фон открытки" width={840} height={520} />
-)
+
+const Background = ({bg}) => {
+    const img = useContext(imgContext);
+    
+    return (
+        <img src={bg} alt="фон открытки" width={840} height={520} />
+    )
+};
 
 export default Background;
 

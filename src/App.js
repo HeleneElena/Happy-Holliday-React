@@ -2,19 +2,21 @@ import React from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import { TextContextProvider } from "./context/textContext";
+import { ImgContextProvider } from "./context/imgContext";
 
 import './App.css';
-import { TextContext } from "./context/textContext";
-
 
 const App = () => {
   return (
     <div>
-      <TextContext>
-        <Header />
-        <Main />
-        <Footer />
-      </TextContext>
+      <ImgContextProvider> 
+      <TextContextProvider>
+          <Header />
+          <Main />
+          <Footer />
+      </TextContextProvider>
+      </ImgContextProvider>
     </div>
   )
   
