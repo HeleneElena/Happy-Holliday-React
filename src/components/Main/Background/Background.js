@@ -3,7 +3,7 @@ import { imgContext } from './../../../context/imgContext';
 import bg from '../../../img/card-bg.jpg';
 
 
-const Background = ({bg}) => {
+const Background = () => {
     const {urlImg} = useContext(imgContext);
     
     return (

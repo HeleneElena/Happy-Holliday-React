@@ -1,11 +1,16 @@
-import { useState, useContext } from 'react';
-import { holidaysContext } from './../../../context/holidaysContext';
+import { useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setHoliday } from '../../../store/holidaysSlice';
 
 import style from './Choises.module.css';
+import { useContext } from 'react';
+import { holidaysContext } from './../../../context/holidaysContext';
 
 const Choises = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {holidays, holiday, changeHoliday} = useContext(holidaysContext);
+  const { holiday } = useSelector(state => state.holidays);
+  const dispatch = useDispatch();
+  const {holidays} = useContext(holidaysContext)
 
   const handlerToggleOpen = () => {
     setIsOpen(!isOpen);
@@ -23,7 +28,7 @@ const Choises = () => {
                           className={style.item} 
                           key={item[0]}
                           onClick={() => {
-                            changeHoliday(item[0]);
+                            dispatch(setHoliday(item[0]));
                             handlerToggleOpen();
                           }} >
                             {item[1]}
