@@ -4,19 +4,22 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { TextContextProvider } from "./context/textContext";
 import { ImgContextProvider } from "./context/imgContext";
+import { HolidaysContextProvider } from "./context/holidaysContext";
 
 import './App.css';
 
 const App = () => {
   return (
     <div>
-      <ImgContextProvider> 
-      <TextContextProvider>
-          <Header />
-          <Main />
-          <Footer />
-      </TextContextProvider>
-      </ImgContextProvider>
+      <HolidaysContextProvider>
+        <ImgContextProvider> 
+        <TextContextProvider>
+            <Header />
+            <Main />
+            <Footer />
+        </TextContextProvider>
+        </ImgContextProvider>
+      </HolidaysContextProvider>
     </div>
   )
   
