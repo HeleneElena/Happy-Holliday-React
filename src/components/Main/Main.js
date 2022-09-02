@@ -2,7 +2,6 @@ import Felicitation from './Felicitation/Felicitation';import Background from '.
 import Container from '../Container/Container';
 
 import style from './Main.module.css';
-import bg from '../../img/card-bg.jpg';
 
 
 const Main = () => (
@@ -10,7 +9,7 @@ const Main = () => (
        <div className={style.card}>
         <div className={style.wrapper}>
           <div className={style.image}>
-            <Background bg={bg} />
+            <Background  />
             <Felicitation />
           </div>
         </div>

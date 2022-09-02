@@ -1,11 +1,12 @@
 import { createContext, useState } from 'react';
-import { useHolidays } from './../hooks/useHolidays';
+import { useFetch } from './../hooks/useFetch';
+import { URI_API } from './../const/const';
 
 export const holidaysContext = createContext({});
 
 export const HolidaysContextProvider = ({ children }) => {
     const [holiday, setHoliday] = useState('');
-    const [holidays] = useHolidays();
+    const [holidays] = useFetch(URI_API);
 
     const changeHoliday = title => {
         setHoliday(title);
