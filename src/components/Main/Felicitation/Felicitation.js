@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import style from './Felicitation.module.css';
-import { textContext } from './../../../context/textContext';
+import { useSelector } from 'react-redux';
 
 const Felicitation = () => {
-  const {text} = useContext(textContext);
+  const {text, loading} = useSelector(state => state.text);
   return (
     <p className={style.text}>
-        {text ?? 'Выберите повод для поздравления'}
+      {loading === 'loading' ? 'загрузка' : 
+        text === '' ? 'Выберите повод для поздравления' : text}
     </p>
   )
 }

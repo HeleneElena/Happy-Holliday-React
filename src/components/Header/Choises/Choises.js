@@ -1,25 +1,29 @@
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setHoliday } from '../../../store/holidaysSlice';
+import { setHoliday, fetchHolidays } from '../../../store/holidaysSlice';
 
 import style from './Choises.module.css';
-import { useContext } from 'react';
-import { holidaysContext } from './../../../context/holidaysContext';
 
 const Choises = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { holiday } = useSelector(state => state.holidays);
+  const { holiday, holidays, loading } = useSelector(state => state.holidays);
   const dispatch = useDispatch();
-  const {holidays} = useContext(holidaysContext)
+
 
   const handlerToggleOpen = () => {
+    if(loading !== 'success') return;
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    dispatch(fetchHolidays())
+  }, [dispatch]);
 
   return ( 
     <div className={style.wrapper}> 
         <button onClick={handlerToggleOpen} className={style.button}>
-            {holidays[holiday] || 'Выбрать праздник'} 
+            { loading!== 'success' ?
+            'Загрузка...' :  holidays[holiday] || 'Выбрать праздник'} 
         </button>
           { isOpen && (
                 <ul className={style.list}>
