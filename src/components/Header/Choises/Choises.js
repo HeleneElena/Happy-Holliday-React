@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setHoliday, fetchHolidays } from '../../../store/holidaysSlice';
 
 import style from './Choises.module.css';
+import { fetchText } from './../../../store/textSlice';
 
 const Choises = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,7 @@ const Choises = () => {
                           key={item[0]}
                           onClick={() => {
                             dispatch(setHoliday(item[0]));
+                            dispatch(fetchText(item[0]));
                             handlerToggleOpen();
                           }} >
                             {item[1]}

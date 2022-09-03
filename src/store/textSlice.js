@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { URI_API } from './../const/const';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const fetchText = createAsyncThunk(
     'text/fetchText',
