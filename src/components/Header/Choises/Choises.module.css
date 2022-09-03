@@ -38,6 +38,9 @@
 .item:last-child {
     margin-bottom: 0px;
 }
+.linkActive {
+    color: #f1b84c;
+}
 
 @media (max-width: 1024px) {
     .button {

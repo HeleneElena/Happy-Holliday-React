@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setHoliday, fetchHolidays } from '../../../store/holidaysSlice';
+import { fetchHolidays } from '../../../store/holidaysSlice';
+import { fetchText } from './../../../store/textSlice';
+import { fetchImage } from './../../../store/imgSlice';
+import { NavLink, useParams } from 'react-router-dom';
 
 import style from './Choises.module.css';
-import { fetchText } from './../../../store/textSlice';
+
 
 const Choises = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { holiday, holidays, loading } = useSelector(state => state.holidays);
+  const { holidays, loading } = useSelector(state => state.holidays);
   const dispatch = useDispatch();
+  const {holiday} = useParams();
 
 
   const handlerToggleOpen = () => {
@@ -17,14 +21,19 @@ const Choises = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchHolidays())
-  }, [dispatch]);
+    dispatch(fetchHolidays());
+    if(holiday) {
+      dispatch(fetchText(holiday));
+      dispatch(fetchImage(holiday));
+    }
+  }, [dispatch, holiday]);
 
   return ( 
     <div className={style.wrapper}> 
         <button onClick={handlerToggleOpen} className={style.button}>
-            { loading!== 'success' ?
-            'Загрузка...' :  holidays[holiday] || 'Выбрать праздник'} 
+            { loading !== 'success' ?
+            'Загрузка...' :  
+            holidays[holiday] || 'Выбрать праздник'} 
         </button>
           { isOpen && (
                 <ul className={style.list}>
@@ -33,18 +42,18 @@ const Choises = () => {
                           className={style.item} 
                           key={item[0]}
                           onClick={() => {
-                            dispatch(setHoliday(item[0]));
-                            dispatch(fetchText(item[0]));
                             handlerToggleOpen();
-                          }} >
-                            {item[1]}
+                      }}>
+                          <NavLink 
+                            to={`card/${item[0]}`}
+                            className={({isActive}) => (isActive ? style.linkActive : '')}
+                            > {item[1]} </NavLink>
                       </li>
                     ))}
                 </ul>
-            )
-          } 
+            )}      
     </div>
-  )
-}
+  );
+};
 
 export default Choises;

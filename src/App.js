@@ -1,22 +1,20 @@
 import React from "react";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import { ImgContextProvider } from "./context/imgContext";
+import Card from './components/Main/Card';
+import EmptyCard from "./components/Main/EmptyCard/EmptyCard";
+import { Route, Routes } from "react-router-dom";
+import Layout from './components/Layout/Layout';
 
 import './App.css';
 
 const App = () => {
   return (
-    <div>
-        <ImgContextProvider> 
-            <Header />
-            <Main />
-            <Footer />
-        </ImgContextProvider>
-    </div>
-  )
-  
+      <Routes> 
+        <Route path="/" element={ <Layout />} > 
+          <Route index element={ <EmptyCard />} />
+          <Route path="card/:holiday" element={ <Card />} />
+        </Route>
+      </Routes>
+  );
 }
 
 export default App;

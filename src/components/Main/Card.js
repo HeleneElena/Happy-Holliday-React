@@ -1,10 +1,11 @@
-import Felicitation from './Felicitation/Felicitation';import Background from './Background/Background';
+import Felicitation from './Felicitation/Felicitation';
+import Background from './Background/Background';
 import Container from '../Container/Container';
 
 import style from './Main.module.css';
 
 
-const Main = () => (
+const Card = () => (
     <Container> 
        <div className={style.card}>
         <div className={style.wrapper}>
@@ -17,4 +18,4 @@ const Main = () => (
     </Container>
 )
 
-export default Main;
+export default Card;
