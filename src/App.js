@@ -13,6 +13,7 @@ const App = () => {
           <Route index element={ <EmptyCard />} />
           <Route path="card/:holiday" element={ <Card />} />
         </Route>
+        <Route path="siтgleCard/:idText/:idImg" element={ <Card />} />
       </Routes>
   );
 }
